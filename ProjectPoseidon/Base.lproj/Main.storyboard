@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vEh-L1-P9i">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Audio Recorder-->
+        <scene sceneID="L5H-rr-CM8">
+            <objects>
+                <tableViewController id="Edm-pH-f9m" customClass="RecordingsTableViewController" customModule="ProjectPoseidon" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ivS-Tn-gHa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="eVX-VU-NRg">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eVX-VU-NRg" id="mYd-PP-nap">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Edm-pH-f9m" id="4Pf-4V-DI0"/>
+                            <outlet property="delegate" destination="Edm-pH-f9m" id="GdN-NS-fDv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Audio Recorder" id="tsq-PN-lPv">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Qon-wr-pJx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GEf-y6-NSi">
+                            <connections>
+                                <segue destination="Cxx-ra-bkD" kind="show" id="He8-EX-RCh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9rB-BV-pr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="113"/>
+        </scene>
+        <!--Record View Controller-->
+        <scene sceneID="ACP-Q1-zNi">
+            <objects>
+                <viewController id="Cxx-ra-bkD" customClass="RecordViewController" customModule="ProjectPoseidon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7O7-Hh-Dih">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8a-Yc-qka">
+                                <rect key="frame" x="163" y="84" width="49" height="30"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordButton:" destination="Cxx-ra-bkD" eventType="touchUpInside" id="tZ8-Hg-y8f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUJ-5e-XML">
+                                <rect key="frame" x="172.5" y="215" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="Cxx-ra-bkD" eventType="touchUpInside" id="A1d-Dv-KtY"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recording Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xU4-9h-lAh">
+                                <rect key="frame" x="20" y="177" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mn3-fa-kpv">
+                                <rect key="frame" x="172" y="122" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButton:" destination="Cxx-ra-bkD" eventType="touchUpInside" id="FXY-el-J8Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xU4-9h-lAh" firstAttribute="leading" secondItem="Hml-UT-s61" secondAttribute="leading" constant="20" id="2Kp-N3-gnx"/>
+                            <constraint firstItem="oUJ-5e-XML" firstAttribute="centerX" secondItem="7O7-Hh-Dih" secondAttribute="centerX" id="4Hs-vg-fwV"/>
+                            <constraint firstItem="N8a-Yc-qka" firstAttribute="centerX" secondItem="7O7-Hh-Dih" secondAttribute="centerX" id="CY7-4B-Mmm"/>
+                            <constraint firstItem="xU4-9h-lAh" firstAttribute="top" secondItem="mn3-fa-kpv" secondAttribute="bottom" constant="25" id="OHY-oj-a6B"/>
+                            <constraint firstItem="mn3-fa-kpv" firstAttribute="centerX" secondItem="7O7-Hh-Dih" secondAttribute="centerX" id="SPl-AU-0vM"/>
+                            <constraint firstItem="Hml-UT-s61" firstAttribute="trailing" secondItem="xU4-9h-lAh" secondAttribute="trailing" constant="20" id="auE-kf-qfD"/>
+                            <constraint firstItem="oUJ-5e-XML" firstAttribute="top" secondItem="xU4-9h-lAh" secondAttribute="bottom" constant="8" id="bqG-Q0-hIL"/>
+                            <constraint firstItem="mn3-fa-kpv" firstAttribute="top" secondItem="N8a-Yc-qka" secondAttribute="bottom" constant="8" id="dF3-DV-wc8"/>
+                            <constraint firstItem="N8a-Yc-qka" firstAttribute="top" secondItem="Hml-UT-s61" secondAttribute="top" constant="20" id="irY-wv-fC0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hml-UT-s61"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="xU4-9h-lAh" id="XSB-7U-GpN"/>
+                        <outlet property="playButton" destination="mn3-fa-kpv" id="IQ1-FL-Zje"/>
+                        <outlet property="recordButton" destination="N8a-Yc-qka" id="POo-NQ-YB3"/>
+                        <outlet property="saveButton" destination="oUJ-5e-XML" id="5Lo-o3-uNQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MdS-TJ-u3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9ug-VQ-TC5">
+            <objects>
+                <navigationController id="vEh-L1-P9i" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PZA-d5-YSE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Edm-pH-f9m" kind="relationship" relationship="rootViewController" id="li9-qi-T5S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmH-BQ-Qwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-497" y="113"/>
+        </scene>
+    </scenes>
+</document>
